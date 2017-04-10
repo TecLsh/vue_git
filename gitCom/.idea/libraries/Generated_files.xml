@@ -1,0 +1,25 @@
+<component name="libraryTable">
+  <library name="Generated files" type="javaScript">
+    <properties>
+      <sourceFilesUrls>
+        <item url="file://$PROJECT_DIR$/dist/src/router/index.js" />
+        <item url="file://$PROJECT_DIR$/dist/src/config/api.js" />
+        <item url="file://$PROJECT_DIR$/dist/src/config/index.js" />
+        <item url="file://$PROJECT_DIR$/dist/src/router/routes.js" />
+        <item url="file://$PROJECT_DIR$/dist/webpack.config.js" />
+        <item url="file://$PROJECT_DIR$/dist/src/main.js" />
+        <item url="file://$PROJECT_DIR$/dist/build/webpack.base.conf.js" />
+      </sourceFilesUrls>
+    </properties>
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/dist/src/router/index.js" />
+      <root url="file://$PROJECT_DIR$/dist/src/config/api.js" />
+      <root url="file://$PROJECT_DIR$/dist/src/config/index.js" />
+      <root url="file://$PROJECT_DIR$/dist/src/router/routes.js" />
+      <root url="file://$PROJECT_DIR$/dist/webpack.config.js" />
+      <root url="file://$PROJECT_DIR$/dist/src/main.js" />
+      <root url="file://$PROJECT_DIR$/dist/build/webpack.base.conf.js" />
+    </CLASSES>
+    <SOURCES />
+  </library>
+</component>
