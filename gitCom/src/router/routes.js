@@ -1,53 +1,72 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Hello from '@/components/Hello'
-// import firstPage from '../pages/firstPage'
-// import secondPage from '../pages/secondPage'
-// import indexPage from '../pages/indexPage'
-// import Frame from '../frame/subroute'
-// import oneLove from '../pages/oneLove'
-// import twoLove from '../pages/twoLove'
-// import threeLove from '../pages/threeLove'
-
+import Home from '../pages/home'
+import DataManager from '../pages/dataManager'
+import Analysis from '../pages/analysis'
+import AddProject from '../pages/addProject'
+import PolicyNotice from '../pages/policeNotice'
+import SystemManager from '../pages/systemManager'
 import Header from '../components/header/header'
+import Login from '../components/login/login'
+import Register from '../components/register/register'
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
+    { path: '/', redirect: '/home' },
     {
-      path: '/',
+      path: '/home',
       components: {
-        Hello: Hello,
-        Header: Header
+        header: Header,
+        home: Home
       }
+    },
+    {
+      path: '/dataManager',
+      components: {
+        header: Header,
+        dataManager: DataManager
+      }
+    },
+    {
+      path: '/analysis',
+      components: {
+        header: Header,
+        analysis: Analysis
+      }
+    },
+    {
+      path: '/addProject',
+      components: {
+        header: Header,
+        addProject: AddProject
+      }
+    },
+    {
+      path: '/policyNotice',
+      components: {
+        header: Header,
+        policyNotice: PolicyNotice
+      }
+    },
+    {
+      path: '/systemManager',
+      components: {
+        header: Header,
+        systemManager: SystemManager
+      }
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: Login
+    },
+    {
+      path: '/register',
+      name: 'register',
+      component: Register
     }
-    // },
-    // {
-    //   path: '/first',
-    //   name: 'first',
-    //   component: firstPage
-    // },
-    // {
-    //   path: '/second',
-    //   name: 'second',
-    //   component: secondPage
-    // },
-    // {
-    //   path: '/three',
-    //   name: 'three',
-    //   component: indexPage
-    // },
-    // {
-    //   path: '/four',
-    //   name: 'four',
-    //   component: Frame,
-    //   children: [
-    //     {path: 'one', component: oneLove},
-    //     {path: 'two', component: twoLove},
-    //     {path: '/', component: threeLove}
-    //   ]
-    // }
   ]
 })
 
