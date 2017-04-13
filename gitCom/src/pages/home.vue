@@ -1,35 +1,39 @@
+
 <template>
-  <div id="home">
-    <h1>首页{{selected}}{{activeName}}</h1>
-    <Row>
-      <i-col span="4">
-        <ul class="infoList">
-          <li v-for="(item,$index) in listInfo" v-on:click="chooseList(item.name,$index)" v-bind:class="{active: item.name === activeName}">
-            <a v-text="item.name"></a>
-          </li>
-        </ul>
-      </i-col>
-      <i-col span="16">
-        <ul class="info" v-if="selected === 0">
-          <li v-for="item in hospital"><i-button type="success" v-text="item.name"></i-button></li>
-        </ul>
-        <div v-if="selected === 1">
-          我是第二个
-        </div>
-        <div v-if="selected === 2">
-          我是第三个
-        </div>
-        <div v-if="selected === 3">
-          我是第四个
-        </div>
-      </i-col>
-    </Row>
+  <div>
+    <head-top></head-top>
+    <div id="home">
+      <h1>首页{{selected}}{{activeName}}</h1>
+      <Row>
+        <i-col span="4">
+          <ul class="infoList">
+            <li v-for="(item,$index) in listInfo" v-on:click="chooseList(item.name,$index)" v-bind:class="{active: item.name === activeName}">
+              <a v-text="item.name"></a>
+            </li>
+          </ul>
+        </i-col>
+        <i-col span="16">
+          <ul class="info" v-if="selected === 0">
+            <li v-for="item in hospital">
+              <a v-text="item.name"></a>
+            </li>
+          </ul>
+          <div v-if="selected === 1">
+            我是第二个
+          </div>
+          <div v-if="selected === 2">
+            我是第三个
+          </div>
+          <div v-if="selected === 3">
+            我是第四个
+          </div>
+        </i-col>
+      </Row>
+    </div>
   </div>
 </template>
 <script>
-  import Vue from 'vue'
-  import Iview from 'iview'
-  Vue.use(Iview)
+  import headTop from '../components/header/header'
   export default {
     data () {
       return {
@@ -55,6 +59,9 @@
         selected: ''
       }
     },
+    components: {
+      headTop
+    },
     methods: {
       chooseList: function (name, index) {
         this.activeName = name
@@ -64,7 +71,7 @@
   }
 </script>
 <style>
-  home ul li{
+  #home ul li{
     margin: 5px;
     text-align: center;
   }

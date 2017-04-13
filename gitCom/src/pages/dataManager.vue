@@ -1,34 +1,24 @@
 <template>
-  <div id="dataManager">
-    <h1>数据管理</h1>
-    <Row>
-      <i-col span="4">
-        <ul class="dataList">
-          <li v-for="item in dataList">
-            <i-button type="primary" v-text="item"></i-button>
-          </li>
-        </ul>
-      </i-col>
-      <i-col span="16">
-        <div>
-          <i-table border :content="self" :columns="dataHead" :data="dataInfo"></i-table>
-        </div>
-      </i-col>
-    </Row>
+  <div>
+    <head-top></head-top>
+    <div id="dataManager">
+      <h1>数据管理{{pageChange}}</h1>
+      <i-table border :content="self" :columns="columns7" :data="data6"></i-table>
+      <Page :total="100" show-elevator :on-change="pageChange"></Page>
+    </div>
   </div>
 </template>
 <script>
-  import Vue from 'vue'
-  import Iview from 'iview'
-  Vue.use(Iview)
+  import headTop from '../components/header/header'
   export default {
     data () {
       return {
         self: this,
+        pageChange: '',
         dataList: [
           '数据查询', '数据导入', '在线编辑'
         ],
-        dataHead: [
+        columns7: [
           {title: '编码', key: 'id'},
           {title: '名称', key: 'name'},
           {title: '类别', key: 'class'},
@@ -43,11 +33,11 @@
             width: 150,
             align: 'center',
             render (row, column, index) {
-              return '<i-button type="primary" size="small" @click="show(index)">查看</i-button><i-button type="error" size="small" @click="remove(index)">删除</i-button>'
+              return `<i-button type="primary" size="small" @click="show(${index})">查看</i-button> <i-button type="error" size="small" @click="remove(${index})">删除</i-button>`
             }
           }
         ],
-        dataInfo: [
+        data6: [
           {id: '001', name: '福尔马林', class: '破伤类', area: '中国', hospital: '安徽省立医院', oldPrice: '100', newPrice: '120', increase: '120%'},
           {id: '001', name: '福尔马林', class: '破伤类', area: '中国', hospital: '安徽省立医院', oldPrice: '100', newPrice: '120', increase: '120%'},
           {id: '001', name: '福尔马林', class: '破伤类', area: '中国', hospital: '安徽省立医院', oldPrice: '100', newPrice: '120', increase: '120%'},
@@ -61,14 +51,18 @@
         ]
       }
     },
+    components: {
+      headTop
+    },
     methods: {
       show (index) {
-//        this.$Modal.info ({
-//          title: '用户信息',
-//        })
+        this.$Modal.info({
+          title: '用户信息',
+          content: `姓名：${this.data6[index].name}<br>年龄：${this.data6[index].id}<br>地址：${this.data6[index].area}`
+        })
       },
       remove (index) {
-        this.dataInfo.splice(index, 1)
+        this.data6.splice(index, 1)
       }
     }
   }

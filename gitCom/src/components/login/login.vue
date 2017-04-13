@@ -1,7 +1,14 @@
 <template>
+  <div>
     <div class="logo">
       <h1>安徽省医疗服务价格监管系统</h1>
     </div>
+    <div id="login">
+      <div class="login_area">
+        <img>
+      </div>
+    </div>
+  </div>
 </template>
 <script>
 

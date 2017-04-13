@@ -6,10 +6,11 @@ import Analysis from '../pages/analysis'
 import AddProject from '../pages/addProject'
 import PolicyNotice from '../pages/policeNotice'
 import SystemManager from '../pages/systemManager'
-import Header from '../components/header/header'
 import Login from '../components/login/login'
 import Register from '../components/register/register'
+import Iview from 'iview'
 
+Vue.use(Iview)
 Vue.use(Router)
 
 export default new Router({
@@ -17,54 +18,34 @@ export default new Router({
     { path: '/', redirect: '/home' },
     {
       path: '/home',
-      components: {
-        header: Header,
-        home: Home
-      }
+      component: Home
     },
     {
       path: '/dataManager',
-      components: {
-        header: Header,
-        dataManager: DataManager
-      }
+      component: DataManager
     },
     {
       path: '/analysis',
-      components: {
-        header: Header,
-        analysis: Analysis
-      }
+      component: Analysis
     },
     {
       path: '/addProject',
-      components: {
-        header: Header,
-        addProject: AddProject
-      }
+      component: AddProject
     },
     {
       path: '/policyNotice',
-      components: {
-        header: Header,
-        policyNotice: PolicyNotice
-      }
+      component: PolicyNotice
     },
     {
       path: '/systemManager',
-      components: {
-        header: Header,
-        systemManager: SystemManager
-      }
+      component: SystemManager
     },
     {
       path: '/login',
-      name: 'login',
       component: Login
     },
     {
       path: '/register',
-      name: 'register',
       component: Register
     }
   ]

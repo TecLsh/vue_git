@@ -1,15 +1,18 @@
 <template>
-  <Row>
-    <i-col span="4">
-      <ul class="dataList">
-        <li>
-          <button type="primary"></button>
-        </li>
-      </ul>
-    </i-col>
-    <i-col span="16"></i-col>
-  </Row>
+  <div>
+    <head-top></head-top>
+  </div>
 </template>
 <script>
-
+  import headTop from '../components/header/header'
+  export default {
+    data () {
+      return {
+        i: ''
+      }
+    },
+    components: {
+      headTop
+    }
+  }
 </script>
