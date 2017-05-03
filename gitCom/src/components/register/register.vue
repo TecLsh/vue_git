@@ -1,10 +1,16 @@
 <template>
   <div class="logo">
-    <h1>安徽省医疗服务价格监管系统</h1>
+    <h1 @click="logo">！注册不允许！</h1>
   </div>
 </template>
 <script>
-
+  export default{
+    methods: {
+      logo: function () {
+        this.$router.push({path: 'home'})
+      }
+    }
+  }
 </script>
 <style>
   .logo{
@@ -16,5 +22,6 @@
     display: inline-block;
     color: #fff;
     margin-left: 50px;
+    cursor: pointer;
   }
 </style>

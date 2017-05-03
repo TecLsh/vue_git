@@ -4,7 +4,8 @@ import Vue from 'vue'
 import App from './App'
 import router from './router/routes'
 import API from './config/api'
-
+import VueResource from 'vue-resource'
+Vue.use(VueResource)
 Vue.prototype.$api = API
 Vue.config.productionTip = false
 

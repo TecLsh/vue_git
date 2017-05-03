@@ -1,14 +1,16 @@
 <template>
   <div id="header-top">
     <div class="logo">
-      <h1>安徽省医疗服务价格监管系统</h1>
-      <router-link class="changeIcon changeIconA" to="/register">注册</router-link>
-      <router-link class="changeIconA" to="/login">登录</router-link>
+      <h1 @click="logo">lsh-vue进阶之路</h1>
+      <router-link v-if="!userName" class="changeIcon changeIconA" to="/register">注册</router-link>
+      <router-link v-if="!userName" class="changeIconA" to="/login">登录</router-link>
+      <a v-if="userName" class="changeIcon changeIconA" @click="logout">退出</a>
+      <a v-if="userName" class="changeIconA" v-text="userName"></a>
     </div>
     <ul class="nav">
       <li v-for="(item,$index) in hospital" v-on:click="selected($index)"
           v-bind:class="($index === activeNumber) ? 'active' : ''">
-        <router-link :to="{path: item.address}">{{item.title}}{{activeNumber}}{{$index}}</router-link>
+        <router-link :to="{path: item.address}" v-text="item.title"></router-link>
       </li>
     </ul>
   </div>
@@ -18,20 +20,36 @@
   export default{
     data () {
       return {
+        userName: '',
         activeNumber: 0,
         hospital: [
           {title: '首页', address: '/home'},
-          {title: '数据管理', address: '/dataManager'},
-          {title: '统计分析', address: '/analysis'},
-          {title: '新增项目公示', address: '/addProject'},
-          {title: '政策通告', address: '/policyNotice'},
-          {title: '系统管理', address: '/systemManager'}
+          {title: '美食生活', address: '/foodLife'},
+          {title: '运动健康', address: '/sportHealth'},
+          {title: '学习进步', address: '/studyUp'},
+          {title: '兴趣爱好', address: '/hobbyInterest'},
+          {title: '网站管理', address: '/systemManager'}
         ]
+      }
+    },
+    mounted: function () {
+      this.userName = sessionStorage.getItem('userName');
+      for (let i = 0; i < this.hospital.length; i++) {
+        if (this.$route.path.indexOf(this.hospital[i].address) >= 0) {
+          this.selected(i)
+        }
       }
     },
     methods: {
       selected: function (index) {
         this.activeNumber = index
+      },
+      logout: function () {
+        sessionStorage.removeItem('userName');
+        this.$router.push({path: 'login'})
+      },
+      logo: function () {
+        this.$router.push({path: 'home'})
       }
     }
   }
@@ -84,6 +102,7 @@
     display: inline-block;
     color: #fff;
     margin-left: 50px;
+    cursor: pointer;
   }
   #header-top>.logo>.changeIconA{
     display: inline-block;

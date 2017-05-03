@@ -1,13 +1,18 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '../pages/home'
-import DataManager from '../pages/dataManager'
-import Analysis from '../pages/analysis'
-import AddProject from '../pages/addProject'
-import PolicyNotice from '../pages/policeNotice'
-import SystemManager from '../pages/systemManager'
+import foodLife from '../pages/foodLife'
+import foodDetail from '../pages/food-detail'
+import sportHealth from '../pages/sportHealth'
+import sportDetail from '../pages/sport-detail'
+import studyUp from '../pages/studyUp'
+import studyDetail from '../pages/study-detail'
+import hobbyInterest from '../pages/hobbyInterest'
+import hobbyDetail from '../pages/hobby-detail'
+import systemManager from '../pages/systemManager'
 import Login from '../components/login/login'
 import Register from '../components/register/register'
+import Success from '../components/success/success'
 import Iview from 'iview'
 
 Vue.use(Iview)
@@ -21,24 +26,44 @@ export default new Router({
       component: Home
     },
     {
-      path: '/dataManager',
-      component: DataManager
+      path: '/foodLife',
+      component: foodLife
     },
     {
-      path: '/analysis',
-      component: Analysis
+      path: '/foodLife/foodDetail',
+      component: foodDetail
     },
     {
-      path: '/addProject',
-      component: AddProject
+      path: '/sportHealth',
+      component: sportHealth
     },
     {
-      path: '/policyNotice',
-      component: PolicyNotice
+      path: '/sportHealth/sportDetail',
+      component: sportDetail
+    },
+    {
+      path: '/studyUp',
+      component: studyUp
+    },
+    {
+      path: '/studyUp/studyDetail',
+      component: studyDetail
+    },
+    {
+      path: '/hobbyInterest',
+      component: hobbyInterest
+    },
+    {
+      path: '/hobbyInterest/hobbyDetail',
+      component: hobbyDetail
     },
     {
       path: '/systemManager',
-      component: SystemManager
+      component: systemManager
+    },
+    {
+      path: '/systemManager/success',
+      component: Success
     },
     {
       path: '/login',
